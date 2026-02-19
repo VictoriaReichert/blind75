@@ -93,4 +93,4 @@ def freqNum(nums: List[int], k: int) -> List[int]:
 # group = groupAnagrams(["act", "pots", "tops", "cat", "stop", "hat"])
 # print(group)
 # 5. Топ элементов
-print(freqNum([2, 1, 2, 2, 3, 5, 3], 2))
+print(freqNum([2, 1, 2, 2, 3, 5, 56], 2))

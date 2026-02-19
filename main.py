@@ -7,4 +7,4 @@ count = {}
 
 # matrix
 freq = [[] for i in range(5)]
-#print(freq)
+print(freq)
