@@ -37,12 +37,18 @@ def productExceptSelf2(nums: List[int]) -> List[int]:
 
 def productExceptSelf3(nums: List[int]) -> List[int]:
     n = len(nums)
-    res = []
-    pref = []
-    suff = []
+    output = []
+    pref = 1
+    suff = 1
     for i in range(n):
-        suffixArray[i].append(i+1)
+        output.append(pref)
+        pref *= nums[i]
+    #print(output)
+    for i in range(n-1, -1, -1):
+        #print(i)
+        output[i] *= suff
+        suff *= nums[i]
     return output
 
 
-print(productExceptSelf2([-1,0,1,2,3]))
+print(productExceptSelf3([1,2,3,4]))
