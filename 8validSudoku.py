@@ -44,6 +44,22 @@ def isValidSudoku(board: List[List[str]]) -> bool:
     return True
 
 
+def isValidSudoku2(board: List[List[str]]) -> bool:
+    row = defaultdict(set)
+    column = defaultdict(set)
+    square = defaultdict(set)
+    for i in range(9):
+        for j in range(9):
+            if board[i][j] == '.':
+                continue
+            if board[i][j] in row[i] or board[i][j] in column[j] or board[i][j] in square[(i // 3, j // 3)]:
+                return False
+            row[i].add(board[i][j])
+            column[j].add(board[i][j])
+            square[(i//3, j//3)].add(board[i][j])
+    return True
+
+
 board = [["1", "2", ".", ".", "3", ".", ".", ".", "."],
          ["4", ".", ".", "5", ".", ".", ".", ".", "."],
          [".", "9", "5", ".", ".", ".", ".", ".", "3"],
@@ -54,4 +70,4 @@ board = [["1", "2", ".", ".", "3", ".", ".", ".", "."],
          [".", ".", ".", "4", "1", "9", ".", ".", "8"],
          [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
 # print(board[0][1])
-print(isValidSudoku(board))
+print(isValidSudoku2(board))
